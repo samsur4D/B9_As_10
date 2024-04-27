@@ -3,7 +3,7 @@ import { AuthContext } from '../Components/AuthProvider';
 import Swal from 'sweetalert2'
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOff } from "react-icons/io5";
-import { toast } from 'react-toastify';
+
 
 
 
@@ -40,10 +40,7 @@ const Register = () => {
             setError("Password Length must be at least 6 character")
             return
           }
-        //   if(!/.*\d.*\d.*/.test(password)){
-        //     setError("NUMBNER DE")
-        //     return
-        //   }
+        
           if(!/[a-z]/.test(password)){
             setError("Must have a Lowercase letter in the password")
             return
@@ -57,7 +54,7 @@ const Register = () => {
           registerUser( email,password)
     .then(result => {
         setUser(result.user)
-       toast('ok')
+        // alert("Done")
     })
             
     
@@ -65,6 +62,15 @@ const Register = () => {
         registerUser(email,password)
         .then(result=>{
             setUser(result.user)
+            // 
+            // toast.success("Successfullry Registered")
+            Swal.fire({
+                // position: "",
+                icon: "success",
+                title: "Register Completed",
+                showConfirmButton: false,
+                timer: 2000
+              });
         })
         // .catch(error=>setError(error.message))
         
@@ -113,8 +119,9 @@ const Register = () => {
                 
                 <button type="submit" className="px-8 bg-black w-full text-white py-3 space-x-2 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Register</button>
             </form>
+           
         </div>
-        
+      
     );
     
 };
