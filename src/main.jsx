@@ -14,6 +14,8 @@ import Roots from './Rooter/Roots.jsx';
 import AllTourist from './Pages/AllTourist.jsx';
 import Addspot from './Pages/Addspot.jsx';
 import Mylist from './Pages/Mylist.jsx';
+import AuthProvider from './Components/AuthProvider.jsx';
+import Protectroute from './Components/Protectroute.jsx';
 
 
 
@@ -34,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addspot",
-        element: <Addspot></Addspot>
+        element: <Protectroute><Addspot></Addspot></Protectroute>
       },
       {
         path: "/mylist",
-        element: <Mylist></Mylist>
+        element: <Protectroute><Mylist></Mylist></Protectroute>
       },
       {
         path: "/login",
@@ -57,7 +59,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
-           <RouterProvider router={router} />
+          <AuthProvider>
+          <RouterProvider router={router} />
+          </AuthProvider>
 
   </React.StrictMode>,
 )

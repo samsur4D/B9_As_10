@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navber from '../Components/Common-Components/Navber';
 import Footewr from '../Components/Common-Components/Footewr';
@@ -9,8 +8,9 @@ const Roots = () => {
         <div>
             <Navber></Navber>
             <Outlet></Outlet>
-            <Footewr></Footewr>
             <ToastContainer></ToastContainer>
+            <Footewr></Footewr>
+           
         </div>
     );
 };
