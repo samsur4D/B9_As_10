@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { ImFacebook } from "react-icons/im";
 import { AuthContext } from '../Components/AuthProvider';
+import Swal from 'sweetalert2'
 import { auth } from '../Firebase/Firebase.init';
 
 const Login = () => {
@@ -25,6 +26,13 @@ const handelGoogleLogin = ()=>{
     googleLogin()
     .then(result =>{
         setUser(result.user)
+        Swal.fire({
+            // position: "top-end",
+            icon: "success",
+            title: "Google Login Finished",
+            showConfirmButton: false,
+            timer: 1500
+          });
         navigate(location.state)
     })
 }
@@ -32,6 +40,13 @@ const handelGoogleLogin = ()=>{
 const handelfacebookLogin = ()=>{
     facebookLogin()
     .then(result =>setUser(result.user))
+    Swal.fire({
+        // position: "top-end",
+        icon: "success",
+        title: "Facebook Login Finished",
+        showConfirmButton: false,
+        timer: 1500
+      });
 }
 // -----------------------
 
