@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+table,th,td{
+    border: 1px solid gray;
+}
+th{
+    background: gray;
+    text-align: center;
+}
