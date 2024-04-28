@@ -17,7 +17,7 @@ const spots = useLoaderData();
                         <div className="flex items-center">
                             <a rel="noopener noreferrer" href="#" className="mb-0 capitalize dark:text-gray-800 underline font-bold text-2xl">Tourist  - spot</a>
                         </div>
-                        {/* <a rel="noopener noreferrer" href="#">See All</a> */}
+                       
                     </div>
                     <div className="space-y-4">
                         <div className="space-y-2">

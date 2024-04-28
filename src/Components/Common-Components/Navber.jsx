@@ -5,21 +5,35 @@ import { AuthContext } from '../AuthProvider';
 
 
 const Navber = () => {
-    const {user,logout} = useContext(AuthContext)
-    console.log(user)
+  const {user,logout} = useContext(AuthContext)
+    // console.log(user)
 
 const [theme , setTheme] = useState('lofi')
 
 
 useEffect(()=>{
   localStorage.setItem('theme',theme)
+  
     
     const localTheme = localStorage.getItem('theme')
+   
     
     document.querySelector('html').setAttribute('data-theme', localTheme)
-   
+    
 },[theme])
  
+// useEffect(() => {
+//   localStorage.setItem('theme', theme);
+  
+//   // Check if theme is correctly set in localStorage
+//   console.log("Theme set in localStorage:", localStorage.getItem('theme'));
+  
+//   const localTheme = localStorage.getItem('theme');
+//   setTheme(localTheme || 'lofi'); // Set theme from localStorage or default to 'lofi' if not found
+  
+//   // Ensure that data-theme attribute is set on html element
+//   document.querySelector('html').setAttribute('data-theme', localTheme || 'lofi');
+// }, [theme]);
 
 
 
@@ -30,7 +44,7 @@ const handelTheme= (e)=>{
     setTheme('lofi')
    }
 }
- console.log(theme);
+//  console.log(theme);
     return (
         <div className="navbar bg-base-100 shadow-2xl rounded-md px-2 w-full  z-10">
         <div className="navbar-start">

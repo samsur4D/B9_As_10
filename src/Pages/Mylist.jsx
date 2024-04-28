@@ -1,13 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import 'animate.css';
+import { AuthContext } from '../Components/AuthProvider';
 
 const Mylist = () => {
+  const {user} = useContext(AuthContext) || {};
+  const [spoti , setSpoti] = useState([]);
     useEffect(() => {
         document.title = 'Your List';
         return () => {
           document.title = 'Title';
         };
       }, []);
+
+
+ useEffect(()=>{
+   fetch(`http://localhost:5000/mylist/${user.email}`)
+   .then(res => res.json())
+   .then(data =>{
+    setSpoti(data)
+   })
+ },[user])
+
     return (
         <div>
            <div className='border border-black mt-5 mb-5 rounded-2xl'>
@@ -34,7 +47,7 @@ const Mylist = () => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
 						<p>97412378923</p>
 					</td>
@@ -57,8 +70,8 @@ const Mylist = () => {
 							<span>Pending</span>
 						</span>
 					</td>
-				</tr>
-				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+				</tr> */}
+				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
 						<p>97412378923</p>
 					</td>
@@ -81,8 +94,8 @@ const Mylist = () => {
 							<span>Pending</span>
 						</span>
 					</td>
-				</tr>
-				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+				</tr> */}
+				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
 						<p>97412378923</p>
 					</td>
@@ -105,31 +118,36 @@ const Mylist = () => {
 							<span>Pending</span>
 						</span>
 					</td>
-				</tr>
-				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-					<td className="p-3">
-						<p>97412378923</p>
-					</td>
-					<td className="p-3">
-						<p>Nvidia Corporation</p>
-					</td>
-					<td className="p-3">
-						<p>14 Jan 2022</p>
-						<p className="dark:text-gray-600">Friday</p>
-					</td>
-					<td className="p-3">
-						<p>01 Feb 2022</p>
-						<p className="dark:text-gray-600">Tuesday</p>
-					</td>
-					<td className="p-3 text-right">
-						<p>$98,218</p>
-					</td>
-					<td className="p-3 text-right">
-						<span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-							<span>Pending</span>
-						</span>
-					</td>
-				</tr>
+				</tr> */}
+         {
+          spoti.map(sp => (
+            <tr key={sp.id} className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+            <td className="p-3">
+              <p>{sp.spot}</p>
+            </td>
+            <td className="p-3">
+              <p>{sp.country}</p>
+            </td>
+            <td className="p-3">
+              
+              <p className="dark:text-gray-600">{sp.location}</p>
+            </td>
+            <td className="p-3">
+              <p>01 Feb 2022</p>
+              <p className="dark:text-gray-600">{sp.cost}</p>
+            </td>
+            <td className="p-3  text-center">
+              <p>{sp.time}</p>
+            </td>
+            <td className="p-3 text-right">
+              <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
+                <span>{sp.email}</span>
+              </span>
+            </td>
+          </tr>
+          ))
+         }
+				
 			</tbody>
 		</table>
 	</div>

@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import 'animate.css';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../Components/AuthProvider';
 
 const Addspot = () => {
+
+    const {user} = useContext(AuthContext) || {};
+
+
     useEffect(() => {
         document.title = 'Add Plan';
         return () => {
@@ -13,6 +18,7 @@ const Addspot = () => {
 
       const handelAddspot = (e) =>{
            e.preventDefault();
+          const email = user.email;
            const form = e.target;
            const photourl = form.photourl.value;
            const spot = form.spot.value;
@@ -23,7 +29,7 @@ const Addspot = () => {
            const seasonality = form.seasonality.value;
            const time = form.time.value;
            const year = form.year.value;
-           const newSpot = {photourl,spot,country,location,description,cost,seasonality,time,year}
+           const newSpot = {photourl,spot,country,location,description,cost,seasonality,time,year , email}
            console.log(newSpot);
         //    send server
         fetch("http://localhost:5000/spot" , {

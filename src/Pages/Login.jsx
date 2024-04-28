@@ -16,7 +16,7 @@ const Login = () => {
 const {googleLogin, user , setUser,facebookLogin}  = useContext(AuthContext)
 const location = useLocation();
 const navigate = useNavigate()
-console.log(location);
+
 
     
 
