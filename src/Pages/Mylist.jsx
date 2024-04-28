@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import 'animate.css';
 import { AuthContext } from '../Components/AuthProvider';
+import { MdDeleteForever } from "react-icons/md";
+import { HiPencilSquare } from "react-icons/hi2";
 
 const Mylist = () => {
   const {user} = useContext(AuthContext) || {};
@@ -38,12 +40,14 @@ const Mylist = () => {
 			</colgroup>
 			<thead className="dark:bg-gray-300">
 				<tr className="text-left">
-					<th className="p-4 text-md">Spots</th>
-					<th className="p-4 text-md">Country</th>
-					<th className="p-4 text-md">Location</th>
-					<th className="p-4 text-md">Avg.Cost</th>
-					<th className="p-4 text-md text-right">Travel-time</th>
-					<th className="p-4 text-md">User Email</th>
+					<th className="p-4 text-lg">Spots</th>
+					<th className="p-4 text-lg">Country</th>
+					<th className="p-4 text-lg">Location</th>
+					<th className="p-4 text-lg">Avg.Cost</th>
+					<th className="p-4 text-lg text-right">Travel-time</th>
+					<th className="p-4 text-lg">User Email</th>
+					<th className="p-4 text-lg">Update</th>
+					<th className="p-4 text-lg">Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -133,7 +137,7 @@ const Mylist = () => {
               <p className="dark:text-gray-600">{sp.location}</p>
             </td>
             <td className="p-3">
-              <p>01 Feb 2022</p>
+              
               <p className="dark:text-gray-600">{sp.cost}</p>
             </td>
             <td className="p-3  text-center">
@@ -142,6 +146,17 @@ const Mylist = () => {
             <td className="p-3 text-right">
               <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
                 <span>{sp.email}</span>
+              </span>
+            </td>
+            <td className="p-3 text-right">
+              <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
+              <button className='flex'><HiPencilSquare className="text-2xl ml-6"/></button>
+              </span>
+            </td>
+            <td className="p-3 text-right">
+              <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
+               
+                <button className='flex ml-5'><MdDeleteForever className="text-2xl "/></button>
               </span>
             </td>
           </tr>

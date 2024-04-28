@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
+import 'animate.css';
 
 const AllTourist = () => {
 
@@ -9,10 +10,23 @@ const spots = useLoaderData();
 
     return (
         <div className='mb-5'>
-           <div className='grid grid-cols-3 gap-3 mt-5 mb-5 rounded-2xl border border-black'>
+                <div className='mt-3 flex gap-28 justify-between px-60'>
+                <a href="#_" className="relative inline-block px-4 py-2 font-medium group">
+<span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+<span className="absolute inset-0 w-full h-full bg-white border-2  border-black group-hover:bg-black"></span>
+<span className="relative text-black group-hover:text-white">Country According to</span>
+</a>
+
+<a href="#_" className="relative inline-block px-4 py-2 font-medium group">
+<span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+<span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+<span className="relative text-black group-hover:text-white">Lower to Higher ---</span>
+</a>
+                </div>
+           <div className='grid grid-cols-3 gap-3 mt-5 mb-5 rounded-2xl border  border-black'>
             {
                 spots.map(spot => (
-                    <div key={spot.location} className="max-w-lg border border-x-black rounded-2xl  mb-3   p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
+                    <div key={spot.location} className="max-w-lg border border-x-black rounded-2xl  mb-3    p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
                     <div className="flex justify-between pb-4 border-bottom">
                         <div className="flex items-center">
                             <a rel="noopener noreferrer" href="#" className="mb-0 capitalize dark:text-gray-800 underline font-bold text-2xl">Tourist  - spot</a>
@@ -30,6 +44,7 @@ const spots = useLoaderData();
                         </div>
                 
                             <div className="flex flex-col justify-start  items-start text-xs">
+                                <span className='text-lg font-bold'>Tourist Spot      :           --- {spot.spot}     </span>
                                 <span className='text-lg font-bold'>Country      :           --- {spot.country}     </span>
                                 <span className='text-lg font-bold'>Location     :           --- {spot.location}    </span>
                                 <span className='text-lg font-bold'>Average-Cost :           --- {spot.cost}        </span>
