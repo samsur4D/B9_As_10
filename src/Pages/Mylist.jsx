@@ -3,6 +3,7 @@ import 'animate.css';
 import { AuthContext } from '../Components/AuthProvider';
 import { MdDeleteForever } from "react-icons/md";
 import { HiPencilSquare } from "react-icons/hi2";
+import { NavLink } from 'react-router-dom';
 
 const Mylist = () => {
   const {user} = useContext(AuthContext) || {};
@@ -150,7 +151,7 @@ const Mylist = () => {
             </td>
             <td className="p-3 text-right">
               <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-              <button className='flex'><HiPencilSquare className="text-2xl ml-6"/></button>
+              <NavLink to="/update" className='flex'><HiPencilSquare className="text-2xl ml-6"/></NavLink>
               </span>
             </td>
             <td className="p-3 text-right">

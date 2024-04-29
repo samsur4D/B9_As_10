@@ -16,6 +16,8 @@ import Addspot from './Pages/Addspot.jsx';
 import Mylist from './Pages/Mylist.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import Protectroute from './Components/Protectroute.jsx';
+import Update from './Pages/Update.jsx';
+import Details from './Pages/Details.jsx';
 
     
 
@@ -30,7 +32,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-    element: <Home></Home>
+       element: <Home></Home>,
+      },
+      {
+       path: "/details",
+       element: <Details></Details>
       },
       {
         path: "/alltourist",
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
       {
         path:"/register",
         element: <Register></Register>
+      },
+      {
+        path: "/update",
+        element: <Update></Update>
       }
     ]
   },
