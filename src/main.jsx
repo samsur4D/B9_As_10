@@ -60,8 +60,8 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: "/update",
-        element:  <Protectroute> <Update></Update></Protectroute>
+        path: "/update/:id",
+        element:  <Protectroute><Update></Update></Protectroute>
       }
     ]
   },

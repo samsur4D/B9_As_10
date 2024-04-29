@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
 import 'animate.css';
@@ -52,8 +52,9 @@ const spots = useLoaderData();
                                 <span className='text-lg font-bold'>Total Visitors per year :--- {spot.year}        </span>
                             </div>
                      <div className='flex justify-between'>
-                     <button className='bg-indigo-300 px-9 rounded-full py-2 text-sm'>Update <MdOutlineSystemUpdateAlt className='ml-3'/></button>
-                     <button className='bg-indigo-500 px-10 rounded-full py-2 text-sm'>Delete <AiFillDelete className='ml-3'/></button>
+        <NavLink to={`/update/${spot._id}`} className="ml-24"> <button 
+        className='bg-indigo-300 px-9 rounded-full py-2 text-sm'>Update <MdOutlineSystemUpdateAlt className='ml-3'/></button></NavLink>
+                   
                      </div>
                         </div>
                         

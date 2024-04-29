@@ -28,22 +28,7 @@ const Mylist = () => {
    })
  },[user])
 
-//  const handleDelete = (_id) => {
-//   console.log(_id);
-//   fetch(`http://localhost:5000/mylist/${_id}`, {
-//     method: 'DELETE',
-//   })
-//   .then(response => {
-//     if (response.ok) {
-//       // Remove the deleted item from state
-//       setSpoti(prevSpoti => prevSpoti.filter(item => item._id !== _id));
-//       console.log('Item deleted successfully');
-//     } else {
-//       console.error('Failed to delete item');
-//     }
-//   })
-//   .catch(error => console.error('Error deleting item:', error));
-// };
+
 
 const handleDelete = (_id) =>{
   console.log(_id)
@@ -137,7 +122,7 @@ const handleDelete = (_id) =>{
             </td>
             <td className="p-3 text-right">
               <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-              <NavLink to="/update" className='flex'><HiPencilSquare className="text-2xl ml-6"/></NavLink>
+              <NavLink to={`/update/${sp._id}`} className='flex'><HiPencilSquare className="text-2xl ml-6"/></NavLink>
               </span>
             </td>
             <td className="p-3 text-right">
