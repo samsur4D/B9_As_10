@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/update",
-        element: <Update></Update>
+        element:  <Protectroute> <Update></Update></Protectroute>
       }
     ]
   },

@@ -4,8 +4,11 @@ import { AuthContext } from '../Components/AuthProvider';
 import { MdDeleteForever } from "react-icons/md";
 import { HiPencilSquare } from "react-icons/hi2";
 import { NavLink } from 'react-router-dom';
-
+import Swal from 'sweetalert2'
+ 
 const Mylist = () => {
+
+
   const {user} = useContext(AuthContext) || {};
   const [spoti , setSpoti] = useState([]);
     useEffect(() => {
@@ -21,8 +24,60 @@ const Mylist = () => {
    .then(res => res.json())
    .then(data =>{
     setSpoti(data)
+    console.log(data);
    })
  },[user])
+
+//  const handleDelete = (_id) => {
+//   console.log(_id);
+//   fetch(`http://localhost:5000/mylist/${_id}`, {
+//     method: 'DELETE',
+//   })
+//   .then(response => {
+//     if (response.ok) {
+//       // Remove the deleted item from state
+//       setSpoti(prevSpoti => prevSpoti.filter(item => item._id !== _id));
+//       console.log('Item deleted successfully');
+//     } else {
+//       console.error('Failed to delete item');
+//     }
+//   })
+//   .catch(error => console.error('Error deleting item:', error));
+// };
+
+const handleDelete = (_id) =>{
+  console.log(_id)
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+     
+      fetch(`http://localhost:5000/mylist/${_id}` , {
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        if(data.deletedCount > 0){
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your Spot has been deleted.",
+            icon: "success"
+          });
+        }
+      })
+      console.log('delete hoise');
+    }
+  });
+             
+}
+ 
 
     return (
         <div>
@@ -52,78 +107,9 @@ const Mylist = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-					<td className="p-3">
-						<p>97412378923</p>
-					</td>
-					<td className="p-3">
-						<p>Microsoft Corporation</p>
-					</td>
-					<td className="p-3">
-						<p>14 Jan 2022</p>
-						<p className="dark:text-gray-600">Friday</p>
-					</td>
-					<td className="p-3">
-						<p>01 Feb 2022</p>
-						<p className="dark:text-gray-600">Tuesday</p>
-					</td>
-					<td className="p-3 text-right">
-						<p>$15,792</p>
-					</td>
-					<td className="p-3 text-right">
-						<span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-							<span>Pending</span>
-						</span>
-					</td>
-				</tr> */}
-				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-					<td className="p-3">
-						<p>97412378923</p>
-					</td>
-					<td className="p-3">
-						<p>Tesla Inc.</p>
-					</td>
-					<td className="p-3">
-						<p>14 Jan 2022</p>
-						<p className="dark:text-gray-600">Friday</p>
-					</td>
-					<td className="p-3">
-						<p>01 Feb 2022</p>
-						<p className="dark:text-gray-600">Tuesday</p>
-					</td>
-					<td className="p-3 text-right">
-						<p>$275</p>
-					</td>
-					<td className="p-3 text-right">
-						<span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-							<span>Pending</span>
-						</span>
-					</td>
-				</tr> */}
-				{/* <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-					<td className="p-3">
-						<p>97412378923</p>
-					</td>
-					<td className="p-3">
-						<p>Coca Cola co.</p>
-					</td>
-					<td className="p-3">
-						<p>14 Jan 2022</p>
-						<p className="dark:text-gray-600">Friday</p>
-					</td>
-					<td className="p-3">
-						<p>01 Feb 2022</p>
-						<p className="dark:text-gray-600">Tuesday</p>
-					</td>
-					<td className="p-3 text-right">
-						<p>$8,950,500</p>
-					</td>
-					<td className="p-3 text-right">
-						<span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-							<span>Pending</span>
-						</span>
-					</td>
-				</tr> */}
+				
+				
+				
          {
           spoti.map(sp => (
             <tr key={sp.id} className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
@@ -156,8 +142,8 @@ const Mylist = () => {
             </td>
             <td className="p-3 text-right">
               <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-               
-                <button className='flex ml-5'><MdDeleteForever className="text-2xl "/></button>
+               {/* delete */}
+                <button onClick={()=>handleDelete(sp._id)} className='flex ml-5'><MdDeleteForever className="text-2xl "/></button>
               </span>
             </td>
           </tr>
