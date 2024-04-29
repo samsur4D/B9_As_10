@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
-import { AiFillDelete } from "react-icons/ai";
+
 import 'animate.css';
 
 const AllTourist = () => {
@@ -43,7 +43,7 @@ const spots = useLoaderData();
                             
                         </div>
                 
-                            <div className="flex flex-col justify-start  items-start text-xs">
+                            <div className="flex flex-col justify-start  items-start text-xs relative">
                                 <span className='text-lg font-bold'>Tourist Spot      :           --- {spot.spot}     </span>
                                 <span className='text-lg font-bold'>Country      :           --- {spot.country}     </span>
                                 <span className='text-lg font-bold'>Location     :           --- {spot.location}    </span>
@@ -53,7 +53,7 @@ const spots = useLoaderData();
                             </div>
                      <div className='flex justify-between'>
         <NavLink to={`/update/${spot._id}`} className="ml-24"> <button 
-        className='bg-indigo-300 px-9 rounded-full py-2 text-sm'>Update <MdOutlineSystemUpdateAlt className='ml-3'/></button></NavLink>
+        className='bg-indigo-300 px-9 rounded-full py-2 text-sm bottom-2'>Update <MdOutlineSystemUpdateAlt className='ml-3'/></button></NavLink>
                    
                      </div>
                         </div>

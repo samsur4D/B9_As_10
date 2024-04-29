@@ -72,7 +72,7 @@ const Home = () => {
                       <p className="leading-snug dark:text-gray-600">Tourist visit per year :{nLocatin.year}</p>
                 
                       <div>
-                        <NavLink to="/details"  className='w-full bg-fuchsia-200 p py-3 px-32 mt-2 mb-2 rounded-2xl font-bold'>View Details</NavLink>
+                        <NavLink to={`/details/${nLocatin._id}`}  className='w-full bg-fuchsia-200 p py-3 px-32 mt-2 mb-2 rounded-2xl font-bold'>View Details</NavLink>
                       </div>
                     </div>
                     

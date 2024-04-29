@@ -1,17 +1,84 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { data } from 'autoprefixer';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import Marquee from "react-fast-marquee";
 const Details = () => {
+const {id} = useParams()
+const [details , setDetails] = useState([])
+
+useEffect(()=>{
+    fetch("http://localhost:5000/spot")
+    .then(res => res.json())
+    .then(data =>{
+        setDetails(data);
+    })
+    
+},[])
+
+// const idTo = parent(id)
+const singleData = details.find(detail => detail._id === id)
+console.log(singleData);
+
     return (
         <div>
-         <section className="py-6 dark:bg-violet-600 dark:text-gray-50">
-	<div className="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
-		<h1 className="text-5xl font-bold leading-none text-center">Something totally different</h1>
-        <img src="https://i.ibb.co/v1Ypqwj/photo-1531169628939-e84f860fa5d6.jpg" alt="" />
-		<p className="pt-2 pb-8 text-xl font-medium text-center">Eum omnis itaque harum at quae sequi unde similique alias asperiores totam. Ex cumque maxime harum doloremque, tempore nam fugiat aspernatur rerum ipsa unde est modi commodi molestias maiores eveniet eius esse asperiores neque dicta ea quisquam? Excepturi sapiente officiis explicabo ab?</p>
-		<NavLink to="/" className="px-8 py-3 text-lg font-semibold  bg-violet-300 w-full rounded-xl dark:bg-gray-100 dark:text-gray-900">Back To Home</NavLink>
-	</div>
-</section>
+             <div>
+                 {
+                  singleData && (
+                
+                    <div>
+                          <div className='relative  '>
+                            <img className='w-full h-[650px]' src={singleData.photourl} alt="" />
+                          </div>
+                          <div className='absolute flex flex-col items-center justify-center top-56  px-10'>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>Location :{singleData.location}</p>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>Country :{singleData.country}</p>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>Seasonality:{singleData.seasonality}</p>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>Average-Cost :{singleData.cost}</p>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>Travel-Time :{singleData.time}</p>
+                              <p className='text-7xl text-white bg-black opacity-60 animate-pulse     font-bold'>To.Visitor Per Year-{singleData.year}</p>
+                          </div>
+                     <div>
+                       <Marquee speed={300}> <section className='flex gap-5'>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+  <figure><img className='w-full h-200px' src="https://i.ibb.co/pWfmJnY/3-980x525px-EMP-EMQ-COVER.jpg" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Discount In To Choose Your Coupon</h2>
+    
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary flex items-center mr-24">Collect</button>
+    </div>
+  </div>
+</div>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+  <figure><img className='w-full h-200px' src="https://i.ibb.co/GkHy0SC/images-1.jpg" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Discount In To Choose Your Coupon</h2>
+    
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary flex items-center mr-24">Collect</button>
+    </div>
+  </div>
+</div>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+  <figure><img className='w-full h-200px' src="https://i.ibb.co/9ws4XsY/images.jpg
+https://i.ibb.co/pWfmJnY/3-980x525px-EMP-EMQ-COVER.jpg" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Discount In To Choose Your Coupon</h2>
+   
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary flex items-center mr-24">Collect</button>
+    </div>
+  </div>
+</div>
+                        </section></Marquee>
+                     </div>
+                    </div>
+
+                    
+                   
+                  )
+                 }
+             </div>
         </div>
     );
 };

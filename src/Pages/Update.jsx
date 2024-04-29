@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
 const Update = () => {
     const [spot, setSpot] = useState([]);
+    
     
 const {id} = useParams()
 console.log(id);
@@ -55,7 +56,10 @@ const handleUpdate = (e) =>{
                 showConfirmButton: false,
                 timer: 1500
               });
+              
               setSpot(updatedRSpot)
+              
+              
         }
     })
 
