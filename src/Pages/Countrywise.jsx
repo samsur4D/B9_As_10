@@ -9,7 +9,7 @@ const [countrys , setCountrys] = useState([])
 
 const {country} = useParams();
  useEffect(()=>{
-  fetch("http://localhost:5000/spot")
+  fetch("https://b10-server.vercel.app/spot")
   .then(res => res.json())
   .then(data => {
     setCountrys(data);

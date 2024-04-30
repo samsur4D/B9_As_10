@@ -20,6 +20,7 @@ import Update from './Pages/Update.jsx';
 import Details from './Pages/Details.jsx';
 import Countrywise from './Pages/Countrywise.jsx';
 import Coupon from './Pages/Coupon.jsx';
+import Contact from './Components/Contact.jsx';
 
     
 
@@ -43,7 +44,8 @@ const router = createBrowserRouter([
       {
         path: "/alltourist",
         element: <AllTourist></AllTourist>,
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://b10-server.vercel.app/spot')
+        // loader: () => fetch('https://b10-server.vercel.app/spot')
       },
       {
         path: "/addspot",
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
       },
       {
         path:"/register",

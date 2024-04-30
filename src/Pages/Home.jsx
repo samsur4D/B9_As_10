@@ -7,22 +7,33 @@ import Marquee from 'react-fast-marquee';
 import { Link, NavLink } from 'react-router-dom';
 
 import { Typewriter , useTypewriter ,  Cursor} from 'react-simple-typewriter'
+import Contact from '../Components/Contact';
+import Coupon from './Coupon';
+import Design from '../Components/Common-Components/Design';
+import HashLoader from "react-spinners/HashLoader";
+
+
 
 
 const Home = () => {
   
-
+  
   const [location , setLoacation] = useState([])
-
+  
     useEffect(() => {
         document.title = 'Lonely Planet';
         return () => {
           document.title = 'Title';
         };
       }, []);
+// --------------------------
+
+// -------------------------
+
+
 
       useEffect(()=>{
-        fetch("http://localhost:5000/spot")
+        fetch("https://b10-server.vercel.app/spot")
         .then(res => res.json())
         .then((data)=>{
            setLoacation(data)
@@ -37,12 +48,22 @@ const Home = () => {
         deleteSpeed: 40,
       });
 
+
+      
+    
+
     return (
         <div>
          <div className=' mt-16 sm:mt-16 lg:mt-10 mb-10 '>
          <Marquee speed={300} className='flex'><h1 className='text-6xl font-bold flex '>L<TiWorld className="mt-1"/>nely Planet  -- L<TiWorld className="mt-1"/>ve travel? Disc<TiWorld className="mt-1"/>ver, plan and b<TiWorld className="mt-1"/><TiWorld className="mt-1"/>k y<TiWorld className="mt-1"/>ur perfect trip with expert advice, travel guides, destination inf<TiWorld className="mt-1"/>rmati<TiWorld className="mt-1"/>n and inspiration fr<TiWorld className="mt-1"/>m L<TiWorld className="mt-1"/>nely Planet.## </h1></Marquee>
            
          </div>
+     
+
+{
+
+}
+
          <Slider></Slider>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
 
@@ -67,13 +88,15 @@ const Home = () => {
                       <a rel="noopener noreferrer" href="#" className="block">
                         <h3 className="text-xl font-semibold dark:text-violet-600">{nLocatin.description}</h3>
                       </a>
-                      <p className="leading-snug dark:text-gray-600">{nLocatin.location}</p>
-                      <p className="leading-snug dark:text-gray-600">{nLocatin.cost}</p>
-                      <p className="leading-snug dark:text-gray-600">Tourist visit per year :{nLocatin.year}</p>
+                      <p className="leading-snug ">{nLocatin.location}</p>
+                      <p className="leading-snug ">{nLocatin.cost}</p>
+                      <p className="leading-snug ">Tourist visit per year :{nLocatin.year}</p>
                 
+                    
                       <div>
-                        <NavLink to={`/details/${nLocatin._id}`}  className='w-full bg-fuchsia-200 p py-3 px-32 mt-2 mb-2 rounded-2xl font-bold'>View Details</NavLink>
-                      </div>
+                         <NavLink to={`/details/${nLocatin._id}`} className="bg-[#40739e] px-5 py-2 rounded-2xl mt-2 font-bold"> <button> View Details</button></NavLink>
+                         
+                               </div>
                     </div>
                     
                   </div>
@@ -87,11 +110,10 @@ const Home = () => {
 <NavLink to="/alltourist"><button className='bg-blue-500 px-6 py-3 rounded-2xl font-bold text-2xl w-full mb-5 mt-2'>Show All Tourist Spot </button></NavLink>
 </div>
           
-{/* --------------- */}
 
-{/* ---------------- */}
 
             </div>
+            {/* -------------------- */}
             <div>
             <div className='flex items-center  mb-20 justify-center'>
 <span className='text-3xl flex items-center justify-center' style={{ color: 'red', fontWeight: 'bold' }}>
@@ -139,7 +161,7 @@ const Home = () => {
         </span>
 </div>
             </div>
-{/* ------------------------------------------- */}
+
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2     gap-2 rounded-3xl mb-5 shadow-xl '>
   
 
@@ -288,10 +310,11 @@ https://i.ibb.co/XJcv7F6/photo-1506665531195-3566af2b4dfa.jpg" alt="" className=
 
   
 </div>
-{/* ------------------------------------------- */}
+
 
            
-         
+         <Design></Design>
+         <Coupon></Coupon>
             
             
         </div>

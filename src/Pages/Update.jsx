@@ -11,7 +11,7 @@ const {id} = useParams()
 console.log(id);
 
 useEffect(() => {
-    fetch(`http://localhost:5000/update/${id}`)
+    fetch(`https://b10-server.vercel.app/update/${id}`)
     
         .then(res => res.json())
         .then(data => {
@@ -38,7 +38,7 @@ const handleUpdate = (e) =>{
     console.log(updatedRSpot);
 
 
-    fetch(`http://localhost:5000/update/${id}` , {
+    fetch(`https://b10-server.vercel.app/update/${id}` , {
         method: 'PUT',
         headers: {
             'Content-Type' : 'application/json'

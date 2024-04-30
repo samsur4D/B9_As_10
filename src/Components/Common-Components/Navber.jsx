@@ -130,12 +130,12 @@ const handelTheme= (e)=>{
 
 
 
-      <div className="flex">
-       {user ? <div className="flex gap-2 ml-3 mr-3"><img className="rounded-full -p-5" src={user.photoURL} alt="" />
-       <button onClick={()=>logout()}  href="#_" className="relative rounded-full inline-block px-4 py-2 font-medium group">
-<span className="absolute rounded-full inset-0 w-full  transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-<span className="absolute rounded-full inset-0 w-full  bg-white border-2 border-black group-hover:bg-black"></span>
-<span className="relative text-black group-hover:text-white  font-bold ">LogOut</span>
+      <div className="">
+       {user ? <div className="flex gap-2 ml-3 mr-3"><img className="rounded-full hidden md:block lg:block -p-5" src={user.photoURL} alt="" />
+       <button onClick={()=>logout()}  href="#_" className="relative hidden md:block lg:block  rounded-full  px-4 py-2 font-medium group">
+<span className="absolute  rounded-full inset-0 w-full  transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+<span className="absolute  rounded-full inset-0 w-full  bg-white border-2 border-black group-hover:bg-black"></span>
+<span className="relative  text-black group-hover:text-white  font-bold ">LogOut</span>
 </button></div> : " "}  
 </div>
 
