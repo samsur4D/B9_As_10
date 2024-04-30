@@ -58,9 +58,9 @@ const AllTourist = () => {
                                     <span className='text-lg font-bold'>Total Visitors per year :--- {spot.year}        </span>
                                 </div>
                                 <div className='flex justify-between'>
-                                    {/* <NavLink to={`/update/${spot._id}`} className="ml-24">
+                                    <NavLink to="/coupon" className="ml-24">
                                         <button className='bg-indigo-300 px-9 rounded-full py-2 text-sm bottom-2'>Add List <MdOutlineSystemUpdateAlt className='ml-3'/></button>
-                                    </NavLink> */}
+                                    </NavLink>
                                 </div>
                             </div>
                         </div>

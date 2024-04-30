@@ -275,7 +275,7 @@ https://i.ibb.co/XJcv7F6/photo-1506665531195-3566af2b4dfa.jpg" alt="" className=
 </div>     </Link>
 <Link to="/countrywise/Nepal">      <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">
 	<div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-		<img src="https://i.ibb.co/44tcCm9/photo-1508804052814-cd3ba865a116.jpg" alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" />
+		<img src="https://i.ibb.co/HpzkT14/photo-1611516491426-03025e6043c8.jpg" alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" />
 		<div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-50">
 			
 			<div className="dark:text-gray-800">

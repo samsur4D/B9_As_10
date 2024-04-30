@@ -72,7 +72,7 @@ const Register = () => {
                 timer: 2000
               });
         })
-        // .catch(error=>setError(error.message))
+        //  .catch(error=>setError(error.message))
         
       
         
