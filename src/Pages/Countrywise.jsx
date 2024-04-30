@@ -39,7 +39,7 @@ useEffect(()=>{
     <h2 className="card-title text-xl font-bold underline">{ct.country}</h2>
     <p>{ct.description}</p>
     <div className="card-actions justify-end">
-      <button className=" px-10 text-lg"> Average-Cost : <span className='text-2xl font-bold animate-pulse underline'>{ct.cost}</span>  </button>
+      <button className=" px-10 text-lg"> Average-Cost:<span className='text-2xl font-bold animate-pulse underline'>{ct.cost}$</span>  </button>
     </div>
   </div>
 </div>

@@ -69,7 +69,8 @@ const handleUpdate = (e) =>{
 
     return (
         <div className='border  border-y-gray-600 rounded-full mt-10 mb-20'>
- <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInLeft  animate__slow mb-10'>Please Update Tourist Spot Where you Visited..!</h1>
+ <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInLeft  animate__slow mb-10'>
+    Please <span className='text-9xl text-yellow-600'>Update</span> Tourist Spot Where you Visited...!</h1>
           <h1 className='text-3xl font-bold mb-2'>Tourist Spot : {spot.spot}</h1>
          
                    <section className="p-6 bg-[#b4afa1] mb-24 px-3 rounded-3xl dark:bg-gray-00 dark:text-gray-900">
@@ -83,7 +84,7 @@ const handleUpdate = (e) =>{
         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
             <div className="col-span-full sm:col-span-3">
                 <label htmlFor="firstname" className="text-md font-semibold">Image Url</label>
-                <input id="firstname" type="url" name='photourl' defaultValue={spot.photourl}  placeholder="Image Url" className="w-full max-w-md h-16 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                <input id="firstname" type="url" name='photourl'   placeholder="Image Url" className="w-full max-w-md h-16 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
             </div>
             
 

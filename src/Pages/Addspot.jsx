@@ -62,7 +62,8 @@ const Addspot = () => {
 
     return (
         <div className='border  border-y-gray-600 rounded-full mt-10 mb-20'>
-            <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInRight animate__slow mb-10'>Please Add Tourist Spot Where you Visited..!</h1>
+            <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInRight animate__slow mb-10'>
+                Please <span className='text-9xl text-red-800'>Add</span> Tourist Spot Where you Visited..!</h1>
                {/* ------------------- */}
                <section className="p-6 bg-[#eccc68] mb-24 px-3 rounded-3xl dark:bg-gray-00 dark:text-gray-900">
 

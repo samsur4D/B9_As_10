@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
-
 import 'animate.css';
+
 
 const AllTourist = () => {
     const spots = useLoaderData();
@@ -46,21 +46,21 @@ const AllTourist = () => {
                                 <img src={spot.photourl} alt="" className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                                 <div className="space-y-2">
                                     <a rel="noopener noreferrer" href="#" className="block">
-                                        <h3 className="text-3xl animate-bounce mt-2 text-[#9b59b6] underline font-bold dark:text-violet-600">{spot.description}</h3>
+                                        <h3 className="text-2xl animate__animated animate__pulse animate__repeat-2	 mt-2 text-[#1289A7] underline font-bold dark:text-violet-600">{spot.description}</h3>
                                     </a>
                                 </div>
                                 <div className="flex flex-col justify-start  items-start text-xs relative">
                                     <span className='text-lg font-bold'>Tourist Spot      :           --- {spot.spot}     </span>
                                     <span className='text-lg font-bold'>Country      :           --- {spot.country}     </span>
                                     <span className='text-lg font-bold'>Location     :           --- {spot.location}    </span>
-                                    <span className='text-lg font-bold'>Average-Cost :           --- {spot.cost}        </span>
+                                    <span className='text-lg font-bold'>Average-Cost :           --- {spot.cost} $       </span>
                                     <span className='text-lg font-bold'>Seasonality :            --- {spot.seasonality} </span>
                                     <span className='text-lg font-bold'>Total Visitors per year :--- {spot.year}        </span>
                                 </div>
                                 <div className='flex justify-between'>
-                                    <NavLink to="/coupon" className="ml-24">
+                                    {/* <NavLink to="/coupon" className="ml-24">
                                         <button className='bg-indigo-300 px-9 rounded-full py-2 text-sm bottom-2'>Add List <MdOutlineSystemUpdateAlt className='ml-3'/></button>
-                                    </NavLink>
+                                    </NavLink> */}
                                 </div>
                             </div>
                         </div>

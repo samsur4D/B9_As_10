@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footewr = () => {
     return (
-        <footer className="footer w-full min-h-[300px] p-10 bg-neutral text-neutral-content">
+        <footer className="footer w-full min-h-[50px] lg:min-h-[300px] p-10 bg-neutral text-neutral-content">
   <nav>
     <h6 className="footer-title">Services</h6> 
     <a className="link link-hover">Heterogeneity.</a>

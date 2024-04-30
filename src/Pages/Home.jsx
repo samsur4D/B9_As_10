@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TiWorld } from "react-icons/ti";
 import 'swiper/css';
-
+import 'animate.css';
 import Slider from './Slider';
 import Marquee from 'react-fast-marquee';
 import { Link, NavLink } from 'react-router-dom';
@@ -140,7 +140,7 @@ const Home = () => {
 </div>
             </div>
 {/* ------------------------------------------- */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-2 rounded-3xl mb-5 shadow-xl '>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2     gap-2 rounded-3xl mb-5 shadow-xl '>
   
 
    <Link to="/countrywise/Bangladesh">    <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">

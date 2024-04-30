@@ -50,6 +50,7 @@ const handelTheme= (e)=>{
               </li>
               <Link to="/addspot"><a>Add Tourist Spot</a></Link>
               <Link to="/mylist"><a>My List</a></Link>
+              <Link to="/coupon"><a>Rewards</a></Link>
             </ul>
           </div>
           <a className="btn btn-ghost font-bold text-xl">Lonely <GiWorld /> Planet</a>
