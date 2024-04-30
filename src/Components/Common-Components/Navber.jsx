@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { GiWorld } from "react-icons/gi";
-import {  NavLink } from 'react-router-dom';
+import {  Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
 
 
@@ -22,18 +22,7 @@ useEffect(()=>{
     
 },[theme])
  
-// useEffect(() => {
-//   localStorage.setItem('theme', theme);
-  
-//   // Check if theme is correctly set in localStorage
-//   console.log("Theme set in localStorage:", localStorage.getItem('theme'));
-  
-//   const localTheme = localStorage.getItem('theme');
-//   setTheme(localTheme || 'lofi'); // Set theme from localStorage or default to 'lofi' if not found
-  
-//   // Ensure that data-theme attribute is set on html element
-//   document.querySelector('html').setAttribute('data-theme', localTheme || 'lofi');
-// }, [theme]);
+
 
 
 
@@ -53,17 +42,14 @@ const handelTheme= (e)=>{
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Home</a></li>
+            <Link to="/"><a>Home</a></Link>
               
               <li>
-                <a>All Tourist Spot</a>
-                {/* <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul> */}
+                <Link to="/alltourist">All Tourist Spot</Link>
+              
               </li>
-              <li><a>Add Tourist Spot</a></li>
-              <li><a>My List</a></li>
+              <Link to="/addspot"><a>Add Tourist Spot</a></Link>
+              <Link to="/mylist"><a>My List</a></Link>
             </ul>
           </div>
           <a className="btn btn-ghost font-bold text-xl">Lonely <GiWorld /> Planet</a>

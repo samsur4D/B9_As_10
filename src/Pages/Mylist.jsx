@@ -30,8 +30,41 @@ const Mylist = () => {
 
 
 
-const handleDelete = (_id) =>{
-  console.log(_id)
+// const handleDelete = (_id) =>{
+//   console.log(_id)
+//   Swal.fire({
+//     title: "Are you sure?",
+//     text: "You won't be able to revert this!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonColor: "#d33",
+//     confirmButtonText: "Yes, delete it!"
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+     
+//       fetch(`http://localhost:5000/mylist/${_id}` , {
+//         method: "DELETE"
+//       })
+//       .then(res => res.json())
+//       .then(data =>{
+//         console.log(data);
+//         if(data.deletedCount > 0){
+//           Swal.fire({
+//             title: "Deleted!",
+//             text: "Your Spot has been deleted.",
+//             icon: "success"
+//           });
+//         }
+//       })
+//       console.log('delete hoise');
+//     }
+//   });
+             
+// }
+//  ----------------------------------
+const handleDelete = (_id) => {
+  console.log(_id);
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -42,27 +75,33 @@ const handleDelete = (_id) =>{
     confirmButtonText: "Yes, delete it!"
   }).then((result) => {
     if (result.isConfirmed) {
-     
-      fetch(`http://localhost:5000/mylist/${_id}` , {
+      fetch(`http://localhost:5000/mylist/${_id}`, {
         method: "DELETE"
       })
-      .then(res => res.json())
-      .then(data =>{
-        console.log(data);
-        if(data.deletedCount > 0){
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your Spot has been deleted.",
-            icon: "success"
-          });
-        }
-      })
-      console.log('delete hoise');
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            // Filter out the deleted item from the state
+            const updatedSpoti = spoti.filter(item => item._id !== _id);
+            setSpoti(updatedSpoti); // Update the state
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Spot has been deleted.",
+              icon: "success"
+            });
+          }
+        })
+        .catch(error => {
+          console.error("Error deleting spot:", error);
+          // Handle error if deletion fails
+        });
     }
   });
-             
-}
- 
+};
+
+
+// ------------------------------------
 
     return (
         <div>

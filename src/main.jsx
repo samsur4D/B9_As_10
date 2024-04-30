@@ -18,6 +18,8 @@ import AuthProvider from './Components/AuthProvider.jsx';
 import Protectroute from './Components/Protectroute.jsx';
 import Update from './Pages/Update.jsx';
 import Details from './Pages/Details.jsx';
+import Countrywise from './Pages/Countrywise.jsx';
+import Coupon from './Pages/Coupon.jsx';
 
     
 
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
         element: <Protectroute><Mylist></Mylist></Protectroute>
       },
       {
+        path: "/countrywise/:country",
+        element: <Countrywise></Countrywise>
+      },
+      {
+        path: "/coupon",
+        element:  <Protectroute> <Coupon></Coupon> </Protectroute>
+      },
+      {
         path: "/login",
         element: <Login></Login>
       },
@@ -63,6 +73,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element:  <Protectroute><Update></Update></Protectroute>
       }
+      
     ]
   },
 ]);

@@ -62,7 +62,7 @@ const Addspot = () => {
 
     return (
         <div className='border  border-y-gray-600 rounded-full mt-10 mb-20'>
-            <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInRight animate__infinite animate__slow mb-10'>Please Add Tourist Spot Where you Visited..!</h1>
+            <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInRight animate__slow mb-10'>Please Add Tourist Spot Where you Visited..!</h1>
                {/* ------------------- */}
                <section className="p-6 bg-[#eccc68] mb-24 px-3 rounded-3xl dark:bg-gray-00 dark:text-gray-900">
 
@@ -119,7 +119,7 @@ const Addspot = () => {
             
 		</fieldset>
        
-        <input className='bg-blue-400  rounded-3xl ml-72 w-[900px] text-4xl font-bold h-16'
+        <input className='bg-[#40407a] text-white rounded-3xl rounded-3xl  ml-28  lg:ml-72      w-[400px] lg:w-[900px] text-4xl font-bold h-16'
          type="submit" value="Submit Button" />
 	</form>
 </section>

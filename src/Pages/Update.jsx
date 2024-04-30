@@ -69,7 +69,7 @@ const handleUpdate = (e) =>{
 
     return (
         <div className='border  border-y-gray-600 rounded-full mt-10 mb-20'>
- <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInLeft animate__infinite animate__slow mb-10'>Please Update Tourist Spot Where you Visited..!</h1>
+ <h1 className='text-6xl font-bold  mt-5 animate__animated animate__backInLeft  animate__slow mb-10'>Please Update Tourist Spot Where you Visited..!</h1>
           <h1 className='text-3xl font-bold mb-2'>Tourist Spot : {spot.spot}</h1>
          
                    <section className="p-6 bg-[#b4afa1] mb-24 px-3 rounded-3xl dark:bg-gray-00 dark:text-gray-900">
@@ -127,7 +127,7 @@ const handleUpdate = (e) =>{
         
     </fieldset>
    
-    <input className='bg-blue-400  rounded-3xl ml-72 w-[900px] text-4xl font-bold h-16'
+    <input className='bg-gray-600 text-white  rounded-3xl  ml-28  lg:ml-72      w-[400px] lg:w-[900px] text-4xl font-bold h-16'
      type="submit" value="Submit Button" />
 </form>
 </section>
